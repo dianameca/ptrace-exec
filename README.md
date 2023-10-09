@@ -88,3 +88,12 @@ The return code is the same as the executed command.
 If command cannot be executed -> returns 127. 
 
 If command is terminated by a signal -> returns 128 plus the signal number.
+
+
+## Running tests
+
+(only on linux based systems for now)
+
+Make sure ``bats`` and ``make`` are installed (``sudo apt install make && sudo apt install bats`` for example)
+
+Run ``make check`` to run the tests.
