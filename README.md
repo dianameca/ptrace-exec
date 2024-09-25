@@ -4,7 +4,7 @@ This is a small tool that uses `ptrace` to monitor the execution of a program an
 
 ## Description
 
-`extra command [arguments...]``
+`extra command [arguments...]`
 
 `extra`  - *exec trace* - displays the full paths of the programs executed by a command and its subprocesses.
 
@@ -33,7 +33,7 @@ hello world
 ```
 
 The path of the program that is executed is actually being showed.   
-In the case of a script it's the interpreter's path is displayed :
+In the case of a script it displays the interpreter's path :
 
 ```
 $ extra ./script.sh
@@ -65,25 +65,9 @@ user 0.00
 sys 0.00
 ```
 
-A more complex example:
-
-```
-$ extra env B=bonjour time -p dash -c 'nice echo $B | rev'
-/usr/bin/env
-/usr/bin/time
-/bin/dash
-/usr/bin/nice
-/usr/bin/rev
-/bin/echo
-hello
-real 0.00
-user 0.00
-sys 0.00
-```
-
 ## Return Code
 
-The return code is the same as the executed command. 
+The return code is the same as the command executed. 
 
 If command cannot be executed -> returns 127. 
 
@@ -92,8 +76,6 @@ If command is terminated by a signal -> returns 128 plus the signal number.
 
 ## Running tests
 
-(only on linux based systems for now)
+On linux make sure `bats`, `make` and `gcc` are installed (`sudo apt-get install` ...)
 
-Make sure ``bats`` and ``make`` are installed (``sudo apt install make && sudo apt install bats`` for example)
-
-Run ``make check`` to run the tests.
+`make check` to run the tests.
